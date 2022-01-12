@@ -868,7 +868,7 @@ html[dir="rtl"] .search-bar .click-search {
 .product-slider .swiper-btn {
   position: absolute;
   z-index: 1;
-  top: 117px;
+  top: 108px;
   /* transform: translateY(-50%); */
   width: 42px;
   height: 42px;
