@@ -1271,9 +1271,11 @@ html[dir="rtl"] .newsletter-button {
   background-color: #fff;
   color: var(--main-hover);
 }
+.cr-cont{
+  text-align: center;
+}
 .cr-img {
-  display: flex;
-  justify-content: center;
+  display: inline-block;
   margin-bottom: 22px;
 }
 .pay-footer {
