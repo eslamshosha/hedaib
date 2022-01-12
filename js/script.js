@@ -1,9 +1,34 @@
 $(document).ready(function () {
   new WOW().init();
 
+  // NAVBAR STICKY
+var $stickyNav = $(".navbar-sticky");
+
+$(window).on("scroll load", function () {
+  var scroll = $(window).scrollTop();
+  if (scroll >= 50) {
+    $stickyNav.addClass("navbar-sticky-moved-up");
+  } else {
+    $stickyNav.removeClass("navbar-sticky-moved-up");
+  }
+  // apply transition
+  if (scroll >= 50) {
+    $stickyNav.addClass("navbar-sticky-transitioned");
+  } else {
+    $stickyNav.removeClass("navbar-sticky-transitioned");
+  }
+  // sticky on
+  if (scroll >= 50) {
+    $stickyNav.addClass("navbar-sticky-on");
+  } else {
+    $stickyNav.removeClass("navbar-sticky-on");
+  }
+});
+
   //This is to Open Search Box
   $(".header-icons .search").click(function () {
-    // $("body").addClass("overflow")
+    $("body").addClass("overflow");
+    $("body").addClass("padding");
     $(".search .search-icon").removeClass("open-search");
     $(".search .search-icon").addClass("close-search");
     $(".search-box").addClass("search-open");
@@ -11,6 +36,7 @@ $(document).ready(function () {
   });
   $(".overlay-box2").click(function () {
     $("body").removeClass("overflow");
+    $("body").removeClass("padding");
     $(".search .search-icon").addClass("open-search");
     $(".search .search-icon").removeClass("close-search");
     $(".search-box").removeClass("search-open");
