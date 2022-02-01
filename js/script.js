@@ -2,46 +2,29 @@ $(document).ready(function () {
   new WOW().init();
 
   // NAVBAR STICKY
-var $stickyNav = $(".navbar-sticky");
+  var $stickyNav = $(".navbar-sticky");
 
-$(window).on("scroll load", function () {
-  var scroll = $(window).scrollTop();
-  if (scroll >= 50) {
-    $stickyNav.addClass("navbar-sticky-moved-up");
-  } else {
-    $stickyNav.removeClass("navbar-sticky-moved-up");
-  }
-  // apply transition
-  if (scroll >= 50) {
-    $stickyNav.addClass("navbar-sticky-transitioned");
-  } else {
-    $stickyNav.removeClass("navbar-sticky-transitioned");
-  }
-  // sticky on
-  if (scroll >= 50) {
-    $stickyNav.addClass("navbar-sticky-on");
-  } else {
-    $stickyNav.removeClass("navbar-sticky-on");
-  }
-});
+  $(window).on("scroll load", function () {
+    var scroll = $(window).scrollTop();
+    if (scroll >= 50) {
+      $stickyNav.addClass("navbar-sticky-moved-up");
+    } else {
+      $stickyNav.removeClass("navbar-sticky-moved-up");
+    }
+    // apply transition
+    if (scroll >= 50) {
+      $stickyNav.addClass("navbar-sticky-transitioned");
+    } else {
+      $stickyNav.removeClass("navbar-sticky-transitioned");
+    }
+    // sticky on
+    if (scroll >= 50) {
+      $stickyNav.addClass("navbar-sticky-on");
+    } else {
+      $stickyNav.removeClass("navbar-sticky-on");
+    }
+  });
 
-  //This is to Open Search Box
-  $(".header-icons .search").click(function () {
-    $("body").addClass("overflow");
-    $("body").addClass("padding");
-    $(".search .search-icon").removeClass("open-search");
-    $(".search .search-icon").addClass("close-search");
-    $(".search-box").addClass("search-open");
-    $(".overlay-box2").fadeIn(500);
-  });
-  $(".overlay-box2").click(function () {
-    $("body").removeClass("overflow");
-    $("body").removeClass("padding");
-    $(".search .search-icon").addClass("open-search");
-    $(".search .search-icon").removeClass("close-search");
-    $(".search-box").removeClass("search-open");
-    $(".overlay-box2").fadeOut(500);
-  });
   //phone size menu onclick
   if ($(window).width() <= 991) {
     $("#menu-id").click(function (e) {
@@ -56,7 +39,8 @@ $(window).on("scroll load", function () {
       $("body").removeClass("overflow");
     });
     //slide down menu
-    $(".btn-div").click(function () {
+    $(".btn-div").click(function (e) {
+      e.preventDefault();
       $(".cats-dispaly").slideToggle(400);
       if ($(window).width() <= 1199) {
         $(this).toggleClass("active");
@@ -64,19 +48,6 @@ $(window).on("scroll load", function () {
     });
     $(".overlay-box").click(function () {
       $(".cats-dispaly").slideToggle(400);
-    });
-
-    $(".has-level-2>.cat-anchor").click(function (e) {
-      e.preventDefault();
-      var item = $(this);
-      $(".has-level-2>.cat-anchor").not(item).removeClass("active");
-      $(item).toggleClass("active");
-      if ($(item).siblings().css("display") == "none") {
-        $(item).siblings().slideDown(500);
-      } else {
-        $(item).siblings().slideUp(500);
-      }
-      $(".has-level-2>.cat-anchor").not(item).siblings().slideUp(500);
     });
   }
   $(".top-header .add-chevron").addClass("chevron-down");
