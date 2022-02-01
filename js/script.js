@@ -41,7 +41,8 @@ $(document).ready(function () {
     //slide down menu
     $(".btn-div").click(function (e) {
       e.preventDefault();
-      $(".cats-dispaly").slideToggle(400);
+      $(this).siblings(".cats-dispaly").slideToggle(400);
+      $(".btn-div").not(this).siblings(".cats-dispaly").slideUp(400);
       if ($(window).width() <= 1199) {
         $(this).toggleClass("active");
       }
