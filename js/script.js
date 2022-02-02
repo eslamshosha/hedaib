@@ -4,23 +4,22 @@ $(document).ready(function () {
   // NAVBAR STICKY
   var $stickyNav = $(".navbar-sticky");
 
+  lastScroll = 0;
   $(window).on("scroll load", function () {
     var scroll = $(window).scrollTop();
-    if (scroll >= 50) {
+    if (lastScroll - scroll > 0) {
       $stickyNav.addClass("navbar-sticky-moved-up");
-    } else {
-      $stickyNav.removeClass("navbar-sticky-moved-up");
-    }
-    // apply transition
-    if (scroll >= 50) {
       $stickyNav.addClass("navbar-sticky-transitioned");
-    } else {
-      $stickyNav.removeClass("navbar-sticky-transitioned");
-    }
-    // sticky on
-    if (scroll >= 50) {
       $stickyNav.addClass("navbar-sticky-on");
     } else {
+      $stickyNav.removeClass("navbar-sticky-moved-up");
+      $stickyNav.removeClass("navbar-sticky-transitioned");
+      $stickyNav.removeClass("navbar-sticky-on");
+    }
+    lastScroll = scroll;
+    if (scroll == 0) {
+      $stickyNav.removeClass("navbar-sticky-moved-up");
+      $stickyNav.removeClass("navbar-sticky-transitioned");
       $stickyNav.removeClass("navbar-sticky-on");
     }
   });
